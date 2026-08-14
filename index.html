@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>炸弹密室 | 文字交互原型</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="left-rail" aria-label="记录栏">
+        <section class="panel intel-panel">
+          <div class="panel-title">
+            <span>情报记录</span>
+            <span id="intelCount">0</span>
+          </div>
+          <ul id="intelList" class="record-list empty-list">
+            <li>你确认过的稳定信息会记录在这里。</li>
+          </ul>
+        </section>
+
+        <section class="panel action-panel">
+          <div class="panel-title">
+            <span>行为记录</span>
+            <span id="actionCount">0</span>
+          </div>
+          <ul id="actionList" class="record-list action-list empty-list">
+            <li>当前尝试中的行动会记录在这里，重启后清空。</li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="camcorder" aria-label="手持摄像机式交互界面">
+        <div class="cam-main">
+          <div class="cam-screen">
+            <div id="screenOverlay" class="screen-overlay mode-standby">
+              <video id="storyVideo" class="story-video" muted playsinline preload="metadata"></video>
+              <div class="video-shade" aria-hidden="true"></div>
+              <div class="screen-top">
+                <div class="rec-dot"><span></span>REC</div>
+                <div id="screenStatus" class="screen-status">待机</div>
+                <div class="battery" aria-hidden="true"><i></i><i></i><i></i></div>
+              </div>
+
+              <div class="viewfinder-corners" aria-hidden="true"></div>
+
+              <div id="presentationSelector" class="presentation-selector" aria-label="呈现模式">
+                <button type="button" data-presentation="text" class="is-active">文字版</button>
+                <button type="button" data-presentation="video">视频版</button>
+              </div>
+
+              <div class="standby-guide" aria-label="开始操作提示">
+                <span>开始录像</span>
+                <p>选择版本后，按下右侧红色录制键。</p>
+                <small><b class="guide-stop" aria-hidden="true"></b> 暂停　<b class="guide-play" aria-hidden="true"></b> 继续</small>
+              </div>
+
+              <div class="story-output">
+                <div id="sceneLabel" class="scene-label">录像待机</div>
+                <div id="storyText" class="story-text"></div>
+                <div id="useZone" class="use-zone" aria-live="polite"></div>
+                <div id="toastLayer" class="toast-layer" aria-live="polite"></div>
+              </div>
+
+              <div id="choiceTray" class="choice-tray" aria-label="情境辅助选项"></div>
+            </div>
+          </div>
+
+          <form id="commandForm" class="command-bar is-disabled">
+            <label for="commandInput">
+              <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M4.5 21a7.5 7.5 0 0 1 15 0"></path>
+              </svg>
+              <span class="sr-only">Daniel</span>
+            </label>
+            <input id="commandInput" autocomplete="off" placeholder="按下右侧红色录制键开始..." disabled />
+            <button id="executeBtn" type="submit" disabled>执行</button>
+          </form>
+        </div>
+
+        <div class="cam-side">
+          <button id="recordButton" class="record-button" aria-label="开始录像或重启"></button>
+          <button id="playButton" class="icon-button icon-play" aria-label="继续播放"></button>
+          <button id="stopButton" class="icon-button icon-square" aria-label="暂停"></button>
+          <button class="icon-button icon-lines" aria-hidden="true" tabindex="-1"></button>
+          <div class="dpad" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <b></b>
+          </div>
+        </div>
+
+        <footer class="inventory" aria-label="道具栏">
+          <div class="inventory-title">道具栏</div>
+          <div id="inventorySlots" class="inventory-slots"></div>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./story-content.js"></script>
+    <script src="./video-manifest.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

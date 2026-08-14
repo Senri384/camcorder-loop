@@ -1,0 +1,196 @@
+{
+  "version": "vertical-slice-v1",
+  "provider": "seedance-2.0-asset",
+  "model": "dreamina-seedance-2-0-260128",
+  "resolution": "720p",
+  "ratio": "16:9",
+  "audio": false,
+  "shared_prompt": "写实真人实景惊悚片。第一人称 Daniel 手持摄像机视角，只有轻微真实呼吸晃动。空间、角色身份、服装、道具和灯光严格参考输入图片。工业荧光灯，混凝土灰、氧化钢和褪色机构绿，红色只作警示。画面清晰、动作自然、物体结构稳定。保持无字幕，避免生成任何文字、数字、界面、Logo、水印和可读标牌。禁止额外人物、人物分身、武器、军装、科幻全息元素、肢体畸形、工具穿模和空间左右翻转。无对白，无配音。",
+  "reference_root": "../../assets/references",
+  "tasks": [
+    {
+      "id": "demo_intro_entry",
+      "file": "demo-intro-entry.mp4",
+      "duration": 15,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "将图片2中的女人定义为Maya，将图片3中的男人定义为Sam，场景严格使用图片1的安全室。镜头1：摄像机跟随Maya和Sam从半开的防爆门跨入安全室，Maya缓慢扫视设备，Sam把手搭在工具上。镜头2：摄像机转向中央测试装置，装置红灯逐个亮起。镜头3：镜头快速回转，厚重防爆门开始自行闭合，Maya和Sam同时回头。单一连续手持跟拍，结尾停在尚未完全闭合的门。"
+    },
+    {
+      "id": "demo_door",
+      "file": "demo-door-impact.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "sam-anchor-v1.png", "maya-anchor-v1.png"],
+      "prompt": "将图片2中的男人定义为Sam，将图片3中的女人定义为Maya，场景严格使用图片1。Sam退后半步，用右肩用力撞击防爆门一次，门体几乎不动，内部锁销连续回扣，门框红灯亮起；Maya立即上前抓住Sam手臂让他停下。第一人称中景轻微后退，动作清楚且只撞一次，结尾稳定在门框与两人。"
+    },
+    {
+      "id": "demo_bomb",
+      "file": "demo-bomb-failures.mp4",
+      "duration": 15,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "场景严格使用图片1，将图片2中的女人定义为Maya，将图片3中的男人定义为Sam。镜头1：第一人称特写，一只手让剪线钳靠近中央装置外露线束，感应灯由黄转红，立刻收手，不剪断线路。镜头2：普通螺丝刀尝试卡入外壳防拆螺栓但不断打滑。镜头3：Sam用手推动测试架，底座固定扣向内收紧，Maya示意停止。三段清楚硬切，不发生爆炸。"
+    },
+    {
+      "id": "demo_reset",
+      "file": "demo-explosion-reset.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。镜头面对中央装置，警示灯急促闪烁，白光突然从装置中心扩张吞没整个画面，画面出现短暂信号雪花和黑场；白光退去后摄像机回到安全室门槛，房间恢复完整，防爆门只关闭一半，Maya和Sam回到刚进入的位置。用白闪和信号断裂明确表达爆炸后回到入口时刻，不展示人体伤害。"
+    },
+    {
+      "id": "playable_opening",
+      "file": "playable-opening.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "将图片2中的女人定义为Maya，将图片3中的男人定义为Sam，场景严格使用图片1。第一人称固定在入口附近，防爆门在身后缓慢闭合，Sam转身看门并准备迈步，Maya越过中央装置看向右侧控制室。两人只做持续的小动作和呼吸，留出可被玩家打断的开放结尾，适合循环播放。"
+    },
+    {
+      "id": "room_scan",
+      "file": "room-scan.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。Daniel第一人称摄像机从中央装置缓慢横摇到右侧观察控制室，再经过分层器材柜，最后停在防爆门低处圆形机械接口。只有一种缓慢横摇运镜，所有关键物件清楚可辨，画面中无人，首尾运动平缓，适合作为空间观察循环。"
+    },
+    {
+      "id": "sam_stop",
+      "file": "sam-stop.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "将图片2中的男人定义为Sam，场景严格使用图片1。Sam正要冲向防爆门，镜头外Daniel的手抓住Sam左上臂。Sam先绷紧肩膀，随后看向门框机械结构，缓慢放松并把手里的工具垂下，改为蹲下检查门边。第一人称中景，不出现Daniel身体和脸，动作从冲动明确过渡到听从理由。"
+    },
+    {
+      "id": "sam_impact",
+      "file": "sam-door-impact.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "将图片2中的男人定义为Sam，场景严格使用图片1。Sam后退半步并用右肩重重撞击防爆门一次，门体不移动，门框内部多根机械锁销向内回扣，红色警示灯稳定亮起。摄像机因撞击轻微震动后迅速稳定，结尾Sam捂住肩膀观察门框，不继续撞击。"
+    },
+    {
+      "id": "sam_search_door",
+      "file": "sam-search-door.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "将图片2中的男人定义为Sam，场景严格使用图片1。Sam蹲在防爆门右下侧，用手掌沿门框缓慢摸索，擦掉灰尘并揭开一块松动护盖，露出低处圆形接口和深机械槽。他用指节敲一下边缘，再侧身让摄像机看清磨损。第一人称缓慢推近，结尾停在接口特写。"
+    },
+    {
+      "id": "bomb_pressure",
+      "file": "bomb-pressure.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称近景对准中央测试装置，红色警示灯从缓慢闪烁变为更急促的节奏，继电器连续吸合，顶灯随之短暂暗一下再恢复。镜头只有轻微呼吸晃动，不出现人物，不发生爆炸，首尾亮度接近以便循环。"
+    },
+    {
+      "id": "maya_control",
+      "file": "maya-control-room.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png"],
+      "prompt": "将图片2中的女人定义为Maya，场景严格使用图片1。Maya进入玻璃后的观察控制室，先用手抹去门控台灰尘，再打开配电箱，发现一个空保险丝槽，随后沿线槽看向旁边读卡器的微弱指示灯。第一人称从门口缓慢推近，Maya动作短促准确，结尾保持她检查线路的稳定构图。"
+    },
+    {
+      "id": "door_detail",
+      "file": "door-hydraulic-port.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称特写防爆门右下侧的圆形液压维护孔，手指擦开边缘灰尘，露出长期磨亮的环状痕迹和孔内很深的机械槽。镜头缓慢推近后稳定停住，不插入任何工具。"
+    },
+    {
+      "id": "bomb_overview",
+      "file": "bomb-overview.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称摄像机绕中央测试装置小幅侧移，依次看清带感应环的外露线束、防拆螺栓、与地面轨道连接的固定底座。只做一种平稳侧移运镜，不触碰设备，结尾回到红色警示灯近景。"
+    },
+    {
+      "id": "bomb_wire_danger",
+      "file": "bomb-wire-danger.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称手部特写，剪线钳缓慢接近中央装置外露线束但不接触，感应环由黄变红，内部闪过细小电弧，手立刻把剪线钳撤离。动作清楚，线路保持完整，不发生爆炸。"
+    },
+    {
+      "id": "bomb_shell_blocked",
+      "file": "bomb-shell-blocked.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称手部特写，普通螺丝刀尝试卡入中央装置外壳的防拆螺栓，尖端连续打滑并留下浅痕，外壳接缝完全不动，手停止用力并收回工具。无火花，无爆炸。"
+    },
+    {
+      "id": "bomb_fixed_blocked",
+      "file": "bomb-fixed-blocked.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称低机位特写测试架底座，一只手轻推装置，四角固定扣随受力向内收紧并咬住地面轨道，装置纹丝不动，手立即撤力。机械动作可信，不损坏装置，不发生爆炸。"
+    },
+    {
+      "id": "cabinet_uniform",
+      "file": "cabinet-uniform-card.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称打开器材柜上层，从挂着的旧维护制服胸袋中取出一张褪色但完整的识别卡，把卡举到镜头前短暂停留。手部和卡片结构稳定，卡面没有可读文字。"
+    },
+    {
+      "id": "cabinet_tools",
+      "file": "cabinet-toolbox.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称打开器材柜中层生锈工具盒，灰尘轻微扬起，盒内清楚露出一把剪线钳和一把普通螺丝刀，手依次拿起两件工具。不要出现额外专业拆弹工具。"
+    },
+    {
+      "id": "cabinet_electrical",
+      "file": "cabinet-electrical.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称拉开器材柜电气零件抽屉，多个小格大多空着，手从角落取出一枚完整瓷管保险丝并在镜头前确认金属端帽。工具尺寸真实，动作缓慢清楚。"
+    },
+    {
+      "id": "cabinet_crank",
+      "file": "cabinet-crank.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称打开器材柜门，镜头转向柜门内侧的弹簧卡扣，手从卡扣中取下一根短粗金属摇柄，清楚展示带齿柄端和横向握把。不要生成其他摇柄。"
+    },
+    {
+      "id": "fuse_success",
+      "file": "fuse-install.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称特写控制室配电箱，手把瓷管保险丝准确压入唯一空槽并合上卡扣，测试灯从微弱闪烁变为稳定绿色，背景门控台逐一亮起。没有危险火花。"
+    },
+    {
+      "id": "card_success",
+      "file": "card-reader-accept.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称特写控制室读卡器，手把旧识别卡贴近感应区，指示灯先红后稳定变绿，背景门控台一只机械释放灯同步亮起。卡面和设备不出现可读文字。"
+    },
+    {
+      "id": "crank_success",
+      "file": "crank-insert.mp4",
+      "duration": 5,
+      "references": ["room-anchor-v1.png"],
+      "prompt": "场景严格使用图片1。第一人称低机位特写，双手把短粗金属摇柄对准防爆门低处圆形接口，柄端推入深机械槽并牢固咬合，握把轻微下压，门内液压结构产生可信受力。门暂时不开。"
+    },
+    {
+      "id": "explosion_reset",
+      "file": "explosion-reset.mp4",
+      "duration": 10,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "场景严格使用图片1，将图片2中的女人定义为Maya，将图片3中的男人定义为Sam。镜头面对急促闪烁的中央装置，白光突然吞没房间，出现短暂黑场和摄像信号断裂；画面恢复时机位重新位于入口，防爆门只关闭一半，Maya和Sam回到刚进入的位置。明确呈现房间复原和人物位置复原，不展示伤害，不出现文字倒计时。"
+    },
+    {
+      "id": "escape",
+      "file": "door-open-escape.mp4",
+      "duration": 15,
+      "references": ["room-anchor-v1.png", "maya-anchor-v1.png", "sam-anchor-v1.png"],
+      "prompt": "场景严格使用图片1，将图片2中的女人定义为Maya，将图片3中的男人定义为Sam。镜头1：Sam与镜头外Daniel共同持续压动已插入液压孔的摇柄，门内锁销逐根退出。镜头2：防爆门缓慢打开，Maya先穿过门缝进入外部通道，Sam随后出去，摄像机最后越过门槛。镜头3：门在身后合拢，门内白光一闪并传来受阻的震动，Maya和Sam确认彼此安全。连续第一人称跟拍，Daniel不出镜，不展示伤害。"
+    }
+  ],
+  "pricing": {
+    "currency": "CNY",
+    "rate_per_second_720p": 0.84,
+    "total_seconds": 200,
+    "one_pass_estimate": 168.0,
+    "pilot_ids": ["room_scan", "sam_stop", "bomb_wire_danger", "explosion_reset", "escape"],
+    "pilot_seconds": 50,
+    "pilot_one_pass_estimate": 42.0
+  }
+}
