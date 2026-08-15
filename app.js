@@ -194,7 +194,10 @@ const videoDirector = {
     el.overlay.classList.add("has-video");
     const beginPlayback = () => {
       if (Math.abs(el.video.currentTime - startTime) > 0.15) el.video.currentTime = startTime;
-      el.video.play().catch(() => this.hide());
+      el.video.play().catch((error) => {
+        const blocked = error && error.name === "NotAllowedError";
+        toast(blocked ? "视频已就绪，按播放键继续播放。" : "视频播放被中断，已保留当前画面。");
+      });
     };
     if (el.video.readyState >= 1) beginPlayback();
     else el.video.addEventListener("loadedmetadata", beginPlayback, { once: true });

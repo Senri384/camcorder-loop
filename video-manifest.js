@@ -38,7 +38,6 @@ window.BOMB_ROOM_VIDEO_MANIFEST = {
     "demo-reset": "explosion_reset",
     opening: "playable_opening",
     lookRoom: "room_scan",
-    doorInitial: "room_scan",
     unknownObject: "room_scan",
     talkMaya: "room_scan",
     talkSam: "room_scan",
