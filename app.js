@@ -190,7 +190,7 @@ const videoDirector = {
       el.video.load();
     }
     el.video.loop = Boolean(entry.loop);
-    el.video.muted = entry.muted !== false;
+    el.video.muted = entry.muted === true;
     el.overlay.classList.add("has-video");
     const beginPlayback = () => {
       if (Math.abs(el.video.currentTime - startTime) > 0.15) el.video.currentTime = startTime;

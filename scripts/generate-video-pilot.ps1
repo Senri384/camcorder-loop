@@ -1,6 +1,8 @@
 param(
   [string[]]$Only = @(),
-  [switch]$Force
+  [switch]$All,
+  [switch]$Force,
+  [string]$OutputRoot = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -9,14 +11,24 @@ $env:PYTHONUTF8 = "1"
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $taskFile = Join-Path $projectRoot "docs\video\vertical-slice-tasks.json"
 $referenceRoot = Join-Path $projectRoot "assets\references"
-$videoRoot = Join-Path $projectRoot "assets\video"
-$providerRoot = "C:\Users\vivix\Documents\Codex\2026-07-13\https-gitlab-vivix-work-link-media\media-skills\.agent\skills\media-generation\providers\video\seedance-2-0-asset"
+$videoRoot = if ($OutputRoot) {
+  if ([System.IO.Path]::IsPathRooted($OutputRoot)) { $OutputRoot } else { Join-Path $projectRoot $OutputRoot }
+} else {
+  Join-Path $projectRoot "assets\video"
+}
+$providerRoot = "C:\Users\vivix\.codex\skills\media-generation\providers\video\seedance-2-0-asset"
 $generator = Join-Path $providerRoot "scripts\generate.py"
 
 $config = Get-Content -Raw -Encoding utf8 $taskFile | ConvertFrom-Json
 $pilotIds = @($config.pricing.pilot_ids)
 $Only = @($Only | ForEach-Object { $_ -split "," } | Where-Object { $_ } | ForEach-Object { $_.Trim() })
-$requestedIds = if ($Only.Count -gt 0) { $Only } else { $pilotIds }
+$requestedIds = if ($Only.Count -gt 0) {
+  $Only
+} elseif ($All) {
+  @($config.tasks | ForEach-Object { $_.id })
+} else {
+  $pilotIds
+}
 $tasks = @($config.tasks | Where-Object { $requestedIds -contains $_.id })
 
 if ($tasks.Count -ne $requestedIds.Count) {
@@ -43,9 +55,12 @@ foreach ($task in $tasks) {
     "--resolution", [string]$config.resolution,
     "--ratio", [string]$config.ratio,
     "--route", "asset",
-    "--no-audio",
     "--output", $outputPath
   )
+
+  if ($config.audio -eq $false) {
+    $cliArgs += "--no-audio"
+  }
 
   foreach ($reference in $task.references) {
     $referencePath = Join-Path $referenceRoot $reference

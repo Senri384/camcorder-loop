@@ -7,4 +7,5 @@ yarn-error.log*
 pnpm-debug.log*
 output/
 cache/
+assets/video-audio-staging/
 *.log
